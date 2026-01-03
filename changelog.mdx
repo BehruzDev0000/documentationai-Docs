@@ -1,0 +1,128 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and new features released for Behruz Toshpulatov.
+---
+
+## Recent Releases
+
+Stay informed about the latest enhancements to Behruz Toshpulatov's documentation platform. You receive automatic updates, but review these notes to understand new capabilities and required actions.
+
+<Callout kind="info">
+  Bookmark this page and subscribe to notifications to get alerts on major releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for custom brand colors in themes, including `#3B82F6` as the default blue.
+- Introduced `<Columns>` and `<Card>` components for better layout organization in docs.
+- Enabled Mermaid diagram rendering directly in MDX code blocks.
+
+## Improvements
+
+- Enhanced parsing rules to prevent common JSX errors like unescaped `{` and `}` characters.
+- Improved accessibility with required `alt` text on all `<Image>` components.
+
+## Bug Fixes
+
+- Fixed nested code block rendering using 4 backticks inside JSX components.
+- Resolved heading hierarchy issues by enforcing H2 starts without H1.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added `<Steps>` and `<Tabs>` components for interactive tutorials and platform guides.
+- Integrated `<ParamField>` and `<ResponseField>` for API documentation sidebars.
+
+## Bug Fixes
+
+- Corrected attribute quoting to always use double quotes in JSX components.
+- Patched self-closing tag issues for container components like `<CodeGroup>`.
+
+## Improvements
+
+- Optimized component validation checklist for faster MDX builds.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## Initial Release
+
+- Core MDX documentation engine with YAML frontmatter support.
+- Basic components: `<Callout>`, `<Card>`, `<Update>`, and standard markdown.
+- Full escaping for special characters like `<`, `>`, `{`, `}` in prose.
+
+## Breaking Changes
+
+- Removed support for H1 headings; all pages now use frontmatter titles.
+
+</Update>
+
+## Upcoming Features
+
+Preview what's coming next to enhance your documentation experience.
+
+<Columns cols={3}>
+  <Card title="Advanced Search" icon="search" href="/search">
+    AI-powered search across all docs with semantic matching.
+  </Card>
+  <Card title="Versioned Docs" icon="git-branch" href="/versioning">
+    Publish multiple doc versions side-by-side.
+  </Card>
+  <Card title="Collaboration" icon="users" href="/collaboration">
+    Real-time editing and comments on doc pages.
+  </Card>
+</Columns>
+
+## How to Upgrade
+
+Follow these steps to ensure your documentation stays current.
+
+<Steps>
+  <Step title="Check Compatibility" icon="check-circle">
+
+    Review your MDX files for deprecated syntax, such as raw `{variable}` without backticks.
+
+  </Step>
+  <Step title="Update Components" icon="download">
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+````bash
+npm install behtosh-docs@latest
+````
+      </Tab>
+      <Tab title="yarn" icon="package">
+````bash
+yarn add behtosh-docs@latest
+````
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Test Parsing" icon="play">
+
+    Run your build process and verify no "acorn parsing" errors occur.
+
+    <CodeGroup tabs="CLI,Script">
+````bash
+npx behtosh-docs build --validate
+````
+````javascript
+// validate.js
+const validateMDX = require('behtosh-docs/validate');
+validateMDX(['changelog.mdx', 'introduction.mdx']);
+````
+    </CodeGroup>
+
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  After upgrading, test interactive components like `<Tabs>` and `<Steps>` on staging.
+</Callout>
